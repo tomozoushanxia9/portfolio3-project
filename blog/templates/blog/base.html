@@ -1,9 +1,5 @@
-
 <!doctype html>
-{% extends 'blog/base.html' %}
 <html lang="ja">
-
-
 <head>
   {% load staticfiles %}
 
@@ -12,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>{{ blog.title }}</title>
+  <title>Yama</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -52,7 +48,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="http://twitter.com/justafansoffkk">Twitter</a>
+          <a class="nav-item nav-link" href="http://twitter.com/justafanoffkk">Twitter</a>
           <a class="nav-item nav-link" href="#">About</a>
           <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
@@ -60,34 +56,49 @@
     </nav>
   </header>
 
-
-
-
   <main role="main">
     <div class="container">
 
 
 
-    <h1 class="text-center pt-3">{{ blog_body.title }}</h1>
-    <br>
-    <br>
-    <hr />
-    <img class="img-fluid" src="{{ blog.image.url }}" />
-    <br />
-    <br />
-    {{ blog_body.body | safe }}<hr /></br>
-    <br />
+
+
+
+      {% block content %}
+
+      <h1 class="text-center pt-3">{{ blog_body.title }}</h1>
+      <br>
+      <br>
+      <hr />
+      <img class="img-fluid" src="{{ blog.image.url }}" />
+      <br />
+      <br />
+      {{ blog_body.body | safe }}<hr /></br>
+      <br />
+
+
+
+      {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   </div>
   </main>
 
-
-
-
   <footer class="text-muted">
     <div class="container text-center">
-      <p>©︎Yamashita {% now "Y" %} </p>
+      <p>©︎Yama {% now "Y" %} </p>
       </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
