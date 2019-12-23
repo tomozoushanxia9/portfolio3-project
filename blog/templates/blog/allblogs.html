@@ -52,44 +52,32 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="http://twitter.com/justafansoffkk">Twitter</a>
           <a class="nav-item nav-link" href="#">About</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
+    <div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1>Hello!</h1>
-        <p class="lead text-muted">Hey this is a blog where you create your imagination.</p>
-        <p>
-          <a href="mailto:tomozoushanxia9@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'download-8.jpg' %}" height= "300"/>
-      </div>
-    </section>
+    <h1 class="text-center pt-3">Welcome to my Blog</h1>
+    <br>
+    <br>
+    <h2>Latest Post</h2>
+    <hr />
 
-    <div class="album py-5 bg-light">
-      <div class="container">
+    {% for blog in blogs.all %}
+    <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+    <img class="img-fluid" src="{{ blog.image.url }}" />
+    <br />
+    <br />
+    <br />
+    {% endfor %}
 
-        <div class="row">
 
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
 
+  </div>
   </main>
 
   <footer class="text-muted">
