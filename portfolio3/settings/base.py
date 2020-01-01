@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'portfolio3.urls'
@@ -75,12 +78,12 @@ WSGI_APPLICATION = 'portfolio3.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio3db',
-        'USER': 'postgres',
-        'PASSWORD': '111kntr777',
-        'HOST': 'localhost',
-        'POST': '5432',
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': 'portfolio3db',
+          'USER': 'postgres',
+          'PASSWORD': '111kntr777',
+          'HOST': 'localhost',
+          'PART': '5432',
     }
 }
 
@@ -120,6 +123,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'portfolio3/static/')
